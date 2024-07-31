@@ -34,7 +34,10 @@ dbConnection();
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000'
+
+    origin: 'http://localhost:3000', // تأكد من صحة النطاق
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // السماح بالطرق التي تحتاجها
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.options('*', cors());
 app.enable('trust proxy');
